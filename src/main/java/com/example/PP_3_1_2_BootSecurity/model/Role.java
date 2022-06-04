@@ -1,7 +1,13 @@
 package com.example.PP_3_1_2_BootSecurity.model;
 
 import org.springframework.security.core.GrantedAuthority;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
