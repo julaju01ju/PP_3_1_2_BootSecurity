@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+<h3>To log in, use the form below</h3>
+<div>
+    <form method="post" action="/login">
+        <label>Enter e-mail</label>
+        <input name="user_name"/>
+
+        <label>Enter password</label>
+        <input type="password" name="password_user"/>
+
+        <input type="submit" value="Login"/>
+    </form>
+
+</div>
+</body>
+</html>
