@@ -9,5 +9,9 @@ public class Pp312BootSecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Pp312BootSecurityApplication.class, args);
 	}
+	@Bean
+	HiddenHttpMethodFilter hiddenHttpMethodFilter() {
+		return new HiddenHttpMethodFilter();
+	}
 
 }
