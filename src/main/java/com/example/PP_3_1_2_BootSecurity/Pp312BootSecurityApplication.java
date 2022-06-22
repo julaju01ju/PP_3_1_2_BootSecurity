@@ -2,6 +2,8 @@ package com.example.PP_3_1_2_BootSecurity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 @SpringBootApplication
 public class Pp312BootSecurityApplication {
@@ -13,5 +15,6 @@ public class Pp312BootSecurityApplication {
 	HiddenHttpMethodFilter hiddenHttpMethodFilter() {
 		return new HiddenHttpMethodFilter();
 	}
+
 
 }

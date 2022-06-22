@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void update(User updateUser) {
         User user = getById(updateUser.getId());
         if (!user.getPassword().equals(userDao.getById(user.getId()).getPassword())) {
