@@ -13,11 +13,14 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserDao userDao;
+    PasswordEncoder passwordEncoder;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    public UserServiceImpl(UserDao userDao, PasswordEncoder passwordEncoder) {
+        this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -32,12 +35,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public void update(User updateUser) {
-        User user = getById(updateUser.getId());
-        if (!user.getPassword().equals(userDao.getById(user.getId()).getPassword())) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-        }
+        String encryptedPassword = passwordEncoder.encode(updateUser.getPassword());
+        updateUser.setPassword(encryptedPassword);
         userDao.update(updateUser);
     }
 
